@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -24,10 +25,20 @@ public class MainMenuUI : MonoBehaviour
         
     }
 
+    public void ReadNameInput(string s)
+    {
+        Debug.Log(s);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.PlayerName = s;
+        }
+    }
+
     public void StartNew()
     {
         SceneManager.LoadScene(1);
     }
+
     public void Exit()
     {
 #if UNITY_EDITOR
@@ -36,4 +47,6 @@ public class MainMenuUI : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+
 }

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; //Singleton
+    public static GameManager instance { get; private set; } //Singleton // ENCAPSULATION
 
-    public string PlayerName;
+    public string playerName;
 
     private void Awake()
     {
-        if (Instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
-        Instance = this;
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

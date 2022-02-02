@@ -7,12 +7,13 @@ using UnityEngine.UI;
 public class GameMenuUI : MonoBehaviour
 {
     [SerializeField]
-    private Text PlayerInGame;
+    private Text playerInGame;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerInGame.text = "Hi! " + GameManager.Instance.PlayerName + ". Wanna play a game?";
+        if (GameManager.instance != null)
+            playerInGame.text = "Hi! " + GameManager.instance.playerName + ". Wanna play a game?";
     }
 
     // Update is called once per frame
@@ -21,7 +22,7 @@ public class GameMenuUI : MonoBehaviour
         
     }
 
-    public void BackToMenu()
+    public void BackToMenu()// ABSTRACTION
     {
         SceneManager.LoadScene(0);
     }

@@ -28,18 +28,16 @@ public class MainMenuUI : MonoBehaviour
     public void ReadNameInput(string s)
     {
         Debug.Log(s);
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.PlayerName = s;
-        }
+        if (GameManager.instance != null)
+            GameManager.instance.playerName = s;
     }
 
-    public void StartNew()
+    public void StartNew()// ABSTRACTION
     {
         SceneManager.LoadScene(1);
     }
 
-    public void Exit()
+    public void Exit()// ABSTRACTION
     {
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
